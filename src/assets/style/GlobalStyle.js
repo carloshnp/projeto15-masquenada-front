@@ -26,7 +26,9 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	font-family: 'PT Serif', serif;
 	line-height: 1;
+	background-color: #f0eacc;
 }
 ol, ul {
 	list-style: none;
@@ -42,6 +44,14 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+* {
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
 }
 `
 
