@@ -24,6 +24,11 @@ const FooterContainer = styled.div`
   bottom: 0;
   left: 0;
 
+  h1, h2, h3 {
+    width: 180px;
+    text-align: center;
+  }
+
   h2, h3 {
     cursor: pointer;
   }

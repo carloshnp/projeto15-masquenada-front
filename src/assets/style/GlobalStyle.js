@@ -53,6 +53,22 @@ a {
 	color: inherit;
 	cursor: pointer;
 }
+input {
+	border: 0px;
+  border-bottom: 1px solid #000000;
+  background-color: #f0eacc;
+}
+input::placeholder {
+  color: #333333;
+  font-size: 15px;
+}
+input:focus {
+  outline: inherit;
+}
+button {
+	border: 0px;
+	cursor: pointer;
+}
 `
 
 export default GlobalStyle;

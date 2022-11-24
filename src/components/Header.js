@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../assets/imgs/logo.png";
 
 export default function Header() {
   return (
     <HeaderContainer>
-      <img src={Logo} alt="Mas Que Nada!" />
+      <Link to="/">
+        <img src={Logo} alt="Mas Que Nada!" />
+      </Link>
 
       <Menu>
         <span>Categorias</span>
@@ -13,7 +16,9 @@ export default function Header() {
       </Menu>
 
       <Icons>
-        <ion-icon name="person-circle-outline"></ion-icon>
+        <Link to="/sign-up">
+          <ion-icon name="person-circle-outline"></ion-icon>
+        </Link>
         <ion-icon name="cart-sharp"></ion-icon>
         <ion-icon name="log-out-sharp"></ion-icon>
       </Icons>
