@@ -39,12 +39,14 @@ export default function SignIn() {
 
 const SignInContainer = styled.div`
   width: 100vw;
+  height: 440px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 200px;
 
   h1 {
-    margin: 165px 0px 20px 0px;
+    margin-bottom: 20px;
     font-weight: 700;
     font-size: 26px;
   }
@@ -61,7 +63,8 @@ const SignInContainer = styled.div`
     flex-direction: column;
 
     input {
-      width: 330px;
+      width: 100vw;
+      max-width: 330px;
       height: 40px;
       margin-bottom: 20px;
     }
@@ -72,7 +75,7 @@ const SignInContainer = styled.div`
       background-color: #2D5C76;
       color: #F0EACC;
       font-weight: 700;
-      margin: 10px auto 100px auto;
+      margin: 10px auto 0px auto;
     }
   }
 `

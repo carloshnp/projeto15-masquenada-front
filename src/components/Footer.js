@@ -12,7 +12,7 @@ export default function Footer() {
 
 const FooterContainer = styled.div`
   width: 100vw;
-  height: 120px;
+  height: 140px;
   background-color: #2D5C76;
   font-size: 15px;
   font-weight: 700;
@@ -20,9 +20,6 @@ const FooterContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
 
   h1, h2, h3 {
     width: 180px;

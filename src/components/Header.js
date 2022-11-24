@@ -16,7 +16,7 @@ export default function Header() {
       </Menu>
 
       <Icons>
-        <Link to="/sign-up">
+        <Link to="/sign-in">
           <ion-icon name="person-circle-outline"></ion-icon>
         </Link>
         <ion-icon name="cart-sharp"></ion-icon>
@@ -37,6 +37,7 @@ const HeaderContainer = styled.div`
   top: 0;
   left: 0;
   z-index: 2;
+  box-shadow: 2px 2px 2px rgb(0 0 0 / 15%);
 
   img {
     padding-top: 20px;
