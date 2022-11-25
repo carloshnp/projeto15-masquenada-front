@@ -5,7 +5,11 @@ export default function Footer() {
     <FooterContainer>
       <h1>MAS QUE NADA! 2022 ©</h1>
       <h2>ENTRE EM CONTATO</h2>
-      <h3>SOBRE</h3>
+      <div>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-whatsapp"></ion-icon>
+      </div>
     </FooterContainer>
   );
 }
@@ -21,12 +25,21 @@ const FooterContainer = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  h1, h2, h3 {
+  h1, h2, div {
     width: 180px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
   }
 
-  h2, h3 {
+  h2 {
     cursor: pointer;
+  }
+  
+  div {
+    justify-content: space-evenly;
+
+    ion-icon {
+    font-size: 25px;
+    }
   }
 `

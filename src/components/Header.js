@@ -70,7 +70,6 @@ const Icons = styled.div`
   right: 40px;
 
   ion-icon {
-    cursor: pointer;
     font-size: 30px;
   }
 `

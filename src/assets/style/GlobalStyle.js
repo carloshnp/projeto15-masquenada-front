@@ -53,6 +53,9 @@ a {
 	color: inherit;
 	cursor: pointer;
 }
+strong {
+	font-weight: 700;
+}
 input {
 	border: 0px;
   border-bottom: 1px solid #000000;
@@ -68,6 +71,15 @@ input:focus {
 button {
 	border: 0px;
 	cursor: pointer;
+	background-color: #2D5C76;
+  color: #F0EACC;
+  font-weight: 700;
+	font-size: 14px;
+	height: 45px;
+	text-transform: uppercase;
+}
+ion-icon {
+  cursor: pointer;
 }
 `
 

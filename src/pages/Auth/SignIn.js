@@ -109,10 +109,6 @@ const SignInContainer = styled.div`
 
     button {
       width: 200px;
-      height: 45px;
-      background-color: #2D5C76;
-      color: #F0EACC;
-      font-weight: 700;
       margin: 10px auto 0px auto;
     }
   }

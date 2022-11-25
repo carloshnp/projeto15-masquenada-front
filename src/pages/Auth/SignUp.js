@@ -109,7 +109,7 @@ const SignUpContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 165px;
+  margin-top: 175px;
 
   h1 {
     margin-bottom: 20px;
@@ -137,10 +137,6 @@ const SignUpContainer = styled.div`
 
     button {
       width: 200px;
-      height: 45px;
-      background-color: #2D5C76;
-      color: #F0EACC;
-      font-weight: 700;
       margin: 10px auto 40px auto;
     }
   }
