@@ -118,7 +118,7 @@ const SignUpContainer = styled.div`
   }
 
   h2 {
-    font-size: 14px;
+    font-size: 15px;
     text-decoration: underline;
     margin-bottom: 30px;
     cursor: pointer;

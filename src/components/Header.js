@@ -10,9 +10,24 @@ export default function Header() {
       </Link>
 
       <Menu>
-        <span>Categorias</span>
-        <span>Sobre</span>
-        <span>Cupons</span>
+        <div className="categories">
+          <span>Categorias</span>
+
+          <div className="menu-categories">
+            <p>Todos os produtos</p>
+            <p>Roupas</p>
+            <p>Chuteiras</p>
+            <p>Acessórios</p>
+            <p>Masculino</p>
+            <p>Feminino</p>
+          </div>
+        </div>
+        <Link to="/about-us">
+          <span>Sobre</span>
+        </Link>
+        <Link to="/contact">
+          <span>Contato</span>
+        </Link>
       </Menu>
 
       <Icons>
@@ -52,12 +67,48 @@ const Menu = styled.div`
   display: flex;
   justify-content: space-around;
 
+  .categories {
+    position: relative;
+    &:hover {
+      .menu-categories {
+        display: flex;
+      }
+    }
+
+    .menu-categories {
+    width: 170px;
+    height: 190px;
+    background-color: #96C0A7;
+    color: #F0EACC;
+    font-weight: 700;
+    line-height: 1.8;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px 10px;
+    position: absolute;
+    top: 20px;
+    left: 0;
+
+    p {
+      width: 150px;
+      cursor: pointer;
+      transition: all 0.4s;
+      &:hover {
+        color: #2D5C76;
+      }
+    }
+  }
+}
+
   span {
     cursor: pointer;
     font-size: 15px;
     font-weight: 700;
     color: #333333;
     text-transform: uppercase;
+    padding-bottom: 10px;
   }
 `
 

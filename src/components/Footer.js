@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Footer() {
   return (
     <FooterContainer>
       <h1>MAS QUE NADA! 2022 ©</h1>
-      <h2>ENTRE EM CONTATO</h2>
+      <Link to="/contact">
+        <h2>ENTRE EM CONTATO</h2>
+      </Link>
       <div>
         <ion-icon name="logo-instagram"></ion-icon>
         <ion-icon name="logo-facebook"></ion-icon>
