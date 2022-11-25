@@ -1,9 +1,43 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { postSignIn } from "../../service/masQueNadaService";
 
 export default function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  function sendForm(e) {
+    e.preventDefault();
+
+    const body = {
+      email,
+      password
+    }
+
+    postSignIn(body)
+      .then((res) => {
+        resetForm();
+        localStorage.setItem("user", JSON.stringify(res.data.name));
+        localStorage.setItem("token", JSON.stringify(res.data.token));
+        navigate("/");
+      })
+      .catch((err) => {
+        resetForm();
+        alert("Algo deu errado. Tente novamente.");
+        console.log(err);
+      })
+  }
+
+  function resetForm() {
+    setEmail("");
+    setPassword("");
+  }
+
   return (
     <>
       <Header />
@@ -14,11 +48,13 @@ export default function SignIn() {
           <h2>Não possui uma conta? Cadastre-se!</h2>
         </Link>
 
-        <form>
+        <form onSubmit={sendForm}>
           <span>E-mail</span>
           <input
             placeholder="Insira seu e-mail"
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
 
@@ -26,6 +62,8 @@ export default function SignIn() {
           <input
             placeholder="Insira sua senha"
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
 

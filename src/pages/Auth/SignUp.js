@@ -6,10 +6,10 @@ import Footer from "../../components/Footer";
 import { postSignUp } from "../../service/masQueNadaService";
 
 export default function SignUp() {
-  const [firstname, setFirstName] = useState("");
-  const [lastname, setLastName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const navigate = useNavigate();
 
@@ -17,29 +17,35 @@ export default function SignUp() {
     e.preventDefault();
 
     const body = {
-      firstname,
-      lastname,
+      name,
       email,
-      password
+      password,
+      confirmPassword
     }
 
-    postSignUp(body) 
-    .then(() => {
+    if (password !== confirmPassword) {
+      setPassword("");
+      setConfirmPassword("");
+      alert("Senhas não conferem. Digite novamente.");
+    }
+
+    postSignUp(body)
+      .then(() => {
         resetForm();
         navigate("/sign-in");
-    })
-    .catch((err) => {
+      })
+      .catch((err) => {
         resetForm();
         alert("Algo deu errado. Tente novamente.");
         console.log(err);
-    });
+      });
   }
 
   function resetForm() {
-    setFirstName("");
-    setLastName("");
+    setName("");
     setEmail("");
     setPassword("");
+    setConfirmPassword("");
   }
 
   return (
@@ -57,17 +63,8 @@ export default function SignUp() {
           <input
             placeholder="Insira seu nome"
             type="text"
-            value={firstname}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
-
-          <span>Sobrenome</span>
-          <input
-            placeholder="Insira seu sobrenome"
-            type="text"
-            value={lastname}
-            onChange={(e) => setLastName(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
 
@@ -86,6 +83,15 @@ export default function SignUp() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <span>Confirme sua senha</span>
+          <input
+            placeholder="Digite sua senha novamente..."
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
 
