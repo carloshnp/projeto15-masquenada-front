@@ -69,14 +69,21 @@ input:focus {
   outline: inherit;
 }
 button {
+	height: 45px;
 	border: 0px;
 	cursor: pointer;
 	background-color: #2D5C76;
   color: #F0EACC;
   font-weight: 700;
 	font-size: 14px;
-	height: 45px;
 	text-transform: uppercase;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	&:disabled {
+  opacity: 0.8;
+  cursor: default;
+  }
 }
 ion-icon {
   cursor: pointer;

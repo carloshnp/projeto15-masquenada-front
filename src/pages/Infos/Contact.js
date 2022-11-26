@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 export default function Contact() {
   return (
     <>
-      <Header />
       <ContactContainer>
         <h1>CONTATO</h1>
 

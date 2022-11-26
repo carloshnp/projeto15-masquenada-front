@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ThreeDots } from 'react-loader-spinner';
 import styled from "styled-components";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { postSignIn } from "../../service/masQueNadaService";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   function sendForm(e) {
     e.preventDefault();
+    setLoading(true);
 
     const body = {
       email,
@@ -25,11 +27,13 @@ export default function SignIn() {
         localStorage.setItem("user", JSON.stringify(res.data.name));
         localStorage.setItem("token", JSON.stringify(res.data.token));
         navigate("/");
+        setLoading(false);
       })
       .catch((err) => {
         resetForm();
         alert("Algo deu errado. Tente novamente.");
         console.log(err);
+        setLoading(false);
       })
   }
 
@@ -40,7 +44,6 @@ export default function SignIn() {
 
   return (
     <>
-      <Header />
       <SignInContainer>
         <h1>LOGIN</h1>
 
@@ -56,6 +59,7 @@ export default function SignIn() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            disabled={loading}
           />
 
           <span>Senha</span>
@@ -65,9 +69,18 @@ export default function SignIn() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            disabled={loading}
           />
 
-          <button>ENTRAR</button>
+          <button disabled={loading}>
+            {loading ? (
+              <ThreeDots
+                color="#96c0a7"
+                height={40}
+                width={40}
+              />
+            ) : ("Entrar")}
+          </button>
         </form>
       </SignInContainer>
       <Footer />
