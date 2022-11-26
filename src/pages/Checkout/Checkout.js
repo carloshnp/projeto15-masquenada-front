@@ -42,7 +42,7 @@ export default function Checkout() {
           />
 
           <div className="payment">
-            <span className="total"><strong>TOTAL A PAGAR: </strong></span>
+            <span className="total"><strong>TOTAL A PAGAR: </strong>R$ </span>
             <span>Selecione uma forma de pagamento:</span>
 
             <div>
