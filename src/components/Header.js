@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../assets/imgs/logo.png";
 
 export default function Header() {
+  const navigate = useNavigate();
+
   return (
     <HeaderContainer>
       <Link to="/">
@@ -35,7 +37,10 @@ export default function Header() {
           <ion-icon name="person-circle-outline"></ion-icon>
         </Link>
         <ion-icon name="cart-sharp"></ion-icon>
-        <ion-icon name="log-out-sharp"></ion-icon>
+        <ion-icon name="log-out-sharp" onClick={() => {
+          localStorage.clear();
+          navigate("/");
+        }}></ion-icon>
       </Icons>
     </HeaderContainer>
   );

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ThreeDots } from 'react-loader-spinner';
 import styled from "styled-components";
+import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { postSignIn } from "../../service/masQueNadaService";
 
@@ -44,6 +45,7 @@ export default function SignIn() {
 
   return (
     <>
+      <Header />
       <SignInContainer>
         <h1>LOGIN</h1>
 

@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 export default function Contact() {
   return (
     <>
+      <Header />
       <ContactContainer>
         <h1>CONTATO</h1>
 
@@ -16,10 +18,10 @@ export default function Contact() {
           <span><strong>E-mail:</strong> masquenada@email.com</span>
         </div>
         <div>
-        <ion-icon name="logo-whatsapp"></ion-icon>
+          <ion-icon name="logo-whatsapp"></ion-icon>
           <span><strong>WhatsApp: </strong> 21 90000-0000</span>
         </div>
-        
+
         <h2>Acompanhe nossas redes sociais:</h2>
         <div className="socialmedia">
           <ion-icon name="logo-facebook"></ion-icon>
