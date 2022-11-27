@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalStyle from "../src/assets/style/GlobalStyle";
+import Header from "./components/Header";
 import SignIn from "./pages/Auth/SignIn";
 import SignUp from "./pages/Auth/SignUp";
 import Checkout from "./pages/Checkout/Checkout";

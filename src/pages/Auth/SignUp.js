@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ThreeDots } from 'react-loader-spinner';
 import styled from "styled-components";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { postSignUp } from "../../service/masQueNadaService";
 
@@ -10,11 +10,13 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   function sendForm(e) {
     e.preventDefault();
+    setLoading(true);
 
     const body = {
       name,
@@ -33,11 +35,13 @@ export default function SignUp() {
       .then(() => {
         resetForm();
         navigate("/sign-in");
+        setLoading(false);
       })
       .catch((err) => {
         resetForm();
         alert("Algo deu errado. Tente novamente.");
         console.log(err);
+        setLoading(false);
       });
   }
 
@@ -50,7 +54,6 @@ export default function SignUp() {
 
   return (
     <>
-      <Header />
       <SignUpContainer>
         <h1>CRIE SUA CONTA</h1>
 
@@ -66,6 +69,7 @@ export default function SignUp() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+            disabled={loading}
           />
 
           <span>E-mail</span>
@@ -75,6 +79,7 @@ export default function SignUp() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            disabled={loading}
           />
 
           <span>Senha</span>
@@ -84,6 +89,7 @@ export default function SignUp() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            disabled={loading}
           />
 
           <span>Confirme sua senha</span>
@@ -93,9 +99,18 @@ export default function SignUp() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
+            disabled={loading}
           />
 
-          <button>CADASTRAR</button>
+          <button disabled={loading}>
+            {loading ? (
+              <ThreeDots
+                color="#96c0a7"
+                height={40}
+                width={40}
+              />
+            ) : ("Cadastrar")}
+          </button>
         </form>
       </SignUpContainer>
       <Footer />

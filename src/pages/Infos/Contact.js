@@ -1,17 +1,15 @@
 import styled from "styled-components";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 export default function Contact() {
   return (
     <>
-      <Header />
       <ContactContainer>
         <h1>CONTATO</h1>
 
         <div>
           <ion-icon name="call-outline"></ion-icon>
-          <span><strong>SAC:</strong> 21 90000-0000</span>
+          <span><strong>SAC:</strong> 21 0000-0000</span>
         </div>
         <div>
           <ion-icon name="mail-outline"></ion-icon>

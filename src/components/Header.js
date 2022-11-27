@@ -11,7 +11,7 @@ export default function Header() {
 
       <Menu>
         <div className="categories">
-          <span>Categorias</span>
+          <span>CATEGORIAS</span>
 
           <div className="menu-categories">
             <p>Todos</p>
@@ -23,10 +23,10 @@ export default function Header() {
           </div>
         </div>
         <Link to="/about-us">
-          <span>Sobre</span>
+          <span>SOBRE</span>
         </Link>
         <Link to="/contact">
-          <span>Contato</span>
+          <span>CONTATO</span>
         </Link>
       </Menu>
 
@@ -110,7 +110,6 @@ const Menu = styled.div`
     font-size: 15px;
     font-weight: 700;
     color: #333333;
-    text-transform: uppercase;
     padding-bottom: 10px;
   }
 `;

@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 export default function Checkout() {
   return (
     <>
-      <Header />
       <CheckoutContainer>
         <h1>FINALIZAR COMPRA</h1>
         <h2>Preencha os campos para finalizar seu pedido!</h2>
@@ -44,7 +42,7 @@ export default function Checkout() {
           />
 
           <div className="payment">
-            <span className="total"><strong>TOTAL A PAGAR: </strong></span>
+            <span className="total"><strong>TOTAL A PAGAR: </strong>R$ </span>
             <span>Selecione uma forma de pagamento:</span>
 
             <div>
@@ -87,7 +85,7 @@ const CheckoutContainer = styled.div`
   }
 
   h2 {
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 30px;
   }
 

@@ -1,12 +1,10 @@
-import { Link } from "react-router-dom"
-import styled from "styled-components"
-import Footer from "../../components/Footer"
-import Header from "../../components/Header"
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import Footer from "../../components/Footer";
 
 export default function Sucess() {
   return (
     <>
-      <Header />
       <SucessContainer>
         <h1>Compra finalizada com sucesso!</h1>
         <Link to="/">
