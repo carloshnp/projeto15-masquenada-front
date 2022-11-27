@@ -21,7 +21,7 @@ export default function Sucess() {
 }
 
 const SucessContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 350px;
   margin-top: 300px;
   display: flex;
