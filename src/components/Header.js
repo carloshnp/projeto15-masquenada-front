@@ -1,48 +1,60 @@
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../assets/imgs/logo.png";
+import UserContext from "../context/UserContext";
+import Cart from "./Cart";
 
 export default function Header() {
+  const { showCart, setShowCart } = useContext(UserContext);
+
   const navigate = useNavigate();
 
   return (
-    <HeaderContainer>
-      <Link to="/">
-        <img src={Logo} alt="Mas Que Nada!" />
-      </Link>
+    <>
+      <HeaderContainer>
+        <Link to="/">
+          <img src={Logo} alt="Mas Que Nada!" />
+        </Link>
 
-      <Menu>
-        <div className="categories">
-          <span>CATEGORIAS</span>
+        <Menu>
+          <div className="categories">
+            <span>CATEGORIAS</span>
 
-          <div className="menu-categories">
-            <p>Todos</p>
-            <p>Roupas</p>
-            <p>Chuteiras</p>
-            <p>Acessórios</p>
-            <p>Masculino</p>
-            <p>Feminino</p>
+            <div className="menu-categories">
+              <p>Todos</p>
+              <p>Roupas</p>
+              <p>Chuteiras</p>
+              <p>Acessórios</p>
+              <p>Masculino</p>
+              <p>Feminino</p>
+            </div>
           </div>
-        </div>
-        <Link to="/about-us">
-          <span>SOBRE</span>
-        </Link>
-        <Link to="/contact">
-          <span>CONTATO</span>
-        </Link>
-      </Menu>
+          <Link to="/about-us">
+            <span>SOBRE</span>
+          </Link>
+          <Link to="/contact">
+            <span>CONTATO</span>
+          </Link>
+        </Menu>
 
-      <Icons>
-        <Link to="/sign-in">
-          <ion-icon name="person-circle-outline"></ion-icon>
-        </Link>
-        <ion-icon name="cart-sharp"></ion-icon>
-        <ion-icon name="log-out-sharp" onClick={() => {
-          localStorage.clear();
-          navigate("/");
-        }}></ion-icon>
-      </Icons>
-    </HeaderContainer>
+        <Icons>
+          <Link to="/sign-in">
+            <ion-icon name="person-circle-outline"></ion-icon>
+          </Link>
+
+          <div className="cart" onClick={() => setShowCart(!showCart)}>
+            <ion-icon name="cart-sharp"></ion-icon>
+          </div>
+
+          <ion-icon name="log-out-sharp" onClick={() => {
+            localStorage.clear();
+            navigate("/");
+          }}></ion-icon>
+        </Icons>
+      </HeaderContainer>
+      <Cart showCart={showCart} setShowCart={setShowCart} onClick={() => setShowCart(false)} />
+    </>
   );
 }
 

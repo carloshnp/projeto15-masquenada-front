@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function Overlay() {
+export default function Overlay({ showCart, setShowCart }) {
   return (
-    <OverlayCart />
+    <OverlayCart showCart={showCart} onClick={() => setShowCart(false)} />
   );
 }
 
@@ -14,4 +14,5 @@ const OverlayCart = styled.div`
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  display: ${props => props.showCart ? "initial" : "none"};
 `;
