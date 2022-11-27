@@ -45,4 +45,4 @@ const AboutUsContainer = styled.div`
     text-align: justify;
     line-height: 1.4;
   }
-`
+`;

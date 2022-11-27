@@ -1,0 +1,17 @@
+import styled from "styled-components";
+
+export default function Overlay() {
+  return (
+    <OverlayCart />
+  );
+}
+
+const OverlayCart = styled.div`
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+`;
