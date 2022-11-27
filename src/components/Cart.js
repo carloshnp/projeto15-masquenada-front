@@ -1,8 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-export default function Cart() {
+export default function Cart({ showCart, setShowCart }) {
+  const navigate = useNavigate();
+
+  function finalizePurchase() {
+    navigate("/checkout");
+    setShowCart(false);
+  }
+
   return (
-    <CartContainer>
+    <CartContainer showCart={showCart}>
       <h1>SEU CARRINHO</h1>
 
       <SelectedProducts>
@@ -33,10 +41,10 @@ export default function Cart() {
           <span>SUBTOTAL</span>
           <span><strong>R$ 199,50</strong></span>
         </div>
-        <button>Finalizar compra</button>
+        <button onClick={finalizePurchase}>Finalizar compra</button>
       </div>
     </CartContainer>
-  )
+  );
 }
 
 const CartContainer = styled.div`
@@ -50,6 +58,8 @@ const CartContainer = styled.div`
   z-index: 3;
   font-size: 16px;
   color: #333333;
+  transform: ${(props) => (props.showCart ? "translateX(0)" : "translateX(500px)")};  
+  transition: all 0.5s ease-out;
 
   h1 {
     font-weight: 700;
@@ -69,14 +79,14 @@ const CartContainer = styled.div`
       width: 440px;
     }
   }
-`
+`;
 
 const SelectedProducts = styled.div`
   width: 440px;
   height: 70vh;
   margin-bottom: 20px;
   overflow-y: scroll;
-`
+`;
 
 const CartProduct = styled.div`
   display: flex;
@@ -120,4 +130,4 @@ const CartProduct = styled.div`
   .delete-product {
     font-size: 22px;
   }
-`
+`;
