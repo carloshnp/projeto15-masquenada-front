@@ -32,7 +32,7 @@ export default function SignIn() {
       })
       .catch((err) => {
         resetForm();
-        alert("Algo deu errado. Tente novamente.");
+        alert("Dados incorretos. Tente novamente.");
         console.log(err);
         setLoading(false);
       })
