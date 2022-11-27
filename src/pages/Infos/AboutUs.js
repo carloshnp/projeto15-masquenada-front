@@ -1,15 +1,17 @@
 import styled from "styled-components";
+import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Brasil from "../../assets/imgs/brasil.png";
 
 export default function AboutUs() {
   return (
     <>
-        <AboutUsContainer>
-          <img src={Brasil} alt="Brasil" />
-          <h1>CONHEÇA NOSSA MARCA</h1>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </AboutUsContainer>
+      <Header />
+      <AboutUsContainer>
+        <img src={Brasil} alt="Brasil" />
+        <h1>CONHEÇA NOSSA MARCA</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      </AboutUsContainer>
       <Footer />
     </>
   )
@@ -43,4 +45,4 @@ const AboutUsContainer = styled.div`
     text-align: justify;
     line-height: 1.4;
   }
-`
+`;
