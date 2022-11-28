@@ -14,11 +14,13 @@ import UserContext from "./context/UserContext";
 
 export default function App() {
   const [showCart, setShowCart] = useState(false);
+  const [cartProducts, setCartProducts] = useState([]);
+
   return (
     <BrowserRouter>
       <GlobalStyle />
       <Overlay showCart={showCart} setShowCart={setShowCart} />
-      <UserContext.Provider value={{ showCart, setShowCart }}>
+      <UserContext.Provider value={{ showCart, setShowCart, cartProducts, setCartProducts }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:productName" element={<ProductPage />} />

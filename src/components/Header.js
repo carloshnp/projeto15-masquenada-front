@@ -7,6 +7,8 @@ import Cart from "./Cart";
 
 export default function Header() {
   const { showCart, setShowCart } = useContext(UserContext);
+  const token = JSON.parse(localStorage.getItem("token"));
+  const name = JSON.parse(localStorage.getItem("user"));
 
   const navigate = useNavigate();
 
@@ -39,18 +41,25 @@ export default function Header() {
         </Menu>
 
         <Icons>
-          <Link to="/sign-in">
+          {token !== null ?
+            (<p className="username">Olá, {name}!</p>)
+            :
+            (<Link to="/sign-in">
             <ion-icon name="person-circle-outline"></ion-icon>
-          </Link>
+            </Link>)}
 
           <div className="cart" onClick={() => setShowCart(!showCart)}>
             <ion-icon name="cart-sharp"></ion-icon>
           </div>
 
-          <ion-icon name="log-out-sharp" onClick={() => {
-            localStorage.clear();
-            navigate("/");
-          }}></ion-icon>
+          {token !== null ?
+            (<ion-icon name="log-out-sharp" onClick={() => {
+              localStorage.clear();
+              alert("Você foi desconectado.");
+              navigate("/");
+            }}></ion-icon>)
+            :
+            ("")}
         </Icons>
       </HeaderContainer>
       <Cart showCart={showCart} setShowCart={setShowCart} onClick={() => setShowCart(false)} />
@@ -132,14 +141,24 @@ const Menu = styled.div`
 `;
 
 const Icons = styled.div`
-  width: 150px;
+  width: 340px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  align-items: center;
   position: absolute;
   top: 55px;
-  right: 40px;
+  right: 50px;
+
+  .username {
+    width: 230px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #2d5c76;
+    text-align: right;
+  }
 
   ion-icon {
     font-size: 30px;
+    margin-left: 15px;
   }
 `;
