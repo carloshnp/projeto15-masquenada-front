@@ -32,6 +32,12 @@ export default function SignUp() {
       alert("Senhas não conferem. Digite novamente.");
     }
 
+    if (password.length < 8) {
+      setPassword("");
+      setConfirmPassword("");
+      alert("Sua senha precisa ter no mínimo 8 dígitos.");
+    }
+
     postSignUp(body)
       .then(() => {
         resetForm();
@@ -40,7 +46,7 @@ export default function SignUp() {
       })
       .catch((err) => {
         resetForm();
-        alert("Algo deu errado. Tente novamente.");
+        alert("Esse e-mail já existe. Tente outro.");
         console.log(err);
         setLoading(false);
       });
