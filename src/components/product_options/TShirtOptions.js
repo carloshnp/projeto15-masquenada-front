@@ -1,15 +1,26 @@
 import styled from "styled-components";
 import Size from "./Size";
 import Color from "./Color";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function TShirtOptions(props) {
   const { shirtColor, shirtSize } = props.product;
+  const { options, setOptions } = props;
   const [sizeOption, setSizeOption] = useState([]);
   const [colorOption, setColorOption] = useState([]);
 
+  console.log(props.product);
+  console.log(options);
+
+  useEffect(() => {
+    const arr = [];
+    const newOptions = arr.concat(sizeOption, colorOption);
+    setOptions(newOptions);
+  }, []);
+
   // console.log(props.product);
   console.log(sizeOption);
+  console.log(colorOption);
 
   return (
     <Container>

@@ -11,14 +11,12 @@ export default function ProductPage() {
   const { productName } = useParams();
   const [options, setOptions] = useState([])
 
-  console.log(type);
-
   function ReturnProductOptions(state) {
     const option = state.state.type
     const product = state.state
-    console.log(product);
+    console.log(state.options);
     if (option === 'camisa'){
-      return <TShirtOptions product={product} />
+      return <TShirtOptions product={product} options={state.options} setOptions={state.setOptions} />
     } else if (option === 'chuteira') {
       return "BootOptions"
     } else if (option === 'bola') {
@@ -35,7 +33,7 @@ export default function ProductPage() {
           <h1>{name}</h1>
           <h2>R${price}</h2>
           <h2>Quantidade: {}</h2>
-          {<ReturnProductOptions state={state} />}
+          {<ReturnProductOptions state={state} options={options} setOptions={setOptions} />}
           <button>Adicionar ao carrinho</button>
         </InfoContainer>
       </ProductDetail>
