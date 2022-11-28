@@ -2,16 +2,15 @@ import styled from "styled-components";
 
 export default function Size(props) {
   const { size, sizeOption, setSizeOption } = props;
-  const isSizeOption = sizeOption.includes(size);
+  const isSizeOption = sizeOption === size;
   const isSelected = isSizeOption;
   // console.log(size);
 
   function selectOption() {
     if (!isSizeOption) {
-      const newSizeOption = [size];
-      setSizeOption(newSizeOption);
+      setSizeOption(size);
     } else {
-      setSizeOption([]);
+      setSizeOption('');
     }
   }
 

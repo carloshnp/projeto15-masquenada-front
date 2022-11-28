@@ -2,16 +2,15 @@ import styled from "styled-components";
 
 export default function Color(props) {
   const { color, colorOption, setColorOption } = props;
-  const isColorOption = colorOption.includes(color);
+  const isColorOption = colorOption === color;
   const isSelected = isColorOption;
   // console.log(size);
 
   function selectOption() {
     if (!isColorOption) {
-      const newColorOption = [color];
-      setColorOption(newColorOption);
+      setColorOption(color);
     } else {
-      setColorOption([]);
+      setColorOption('');
     }
   }
 
