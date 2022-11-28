@@ -1,30 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import TShirtOptions from "../../components/product_options/TShirtOptions";
+import ReturnProductOptions from "../../components/product_options/ReturnProductOptions";
 
 export default function ProductPage() {
   const { state } = useLocation();
   const { image, name, price, type } = state;
   const { productName } = useParams();
-  const [options, setOptions] = useState([])
-
-  console.log(type);
-
-  function ReturnProductOptions(state) {
-    const option = state.state.type
-    const product = state.state
-    console.log(product);
-    if (option === 'camisa'){
-      return <TShirtOptions product={product} />
-    } else if (option === 'chuteira') {
-      return "BootOptions"
-    } else if (option === 'bola') {
-      return "BallOptions"
-    }
-  }
+  const [options, setOptions] = useState([]);
 
   return (
     <Container>
@@ -35,7 +20,13 @@ export default function ProductPage() {
           <h1>{name}</h1>
           <h2>R${price}</h2>
           <h2>Quantidade: {}</h2>
-          {<ReturnProductOptions state={state} />}
+          {
+            <ReturnProductOptions
+              state={state}
+              options={options}
+              setOptions={setOptions}
+            />
+          }
           <button>Adicionar ao carrinho</button>
         </InfoContainer>
       </ProductDetail>
