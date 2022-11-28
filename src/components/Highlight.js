@@ -2,10 +2,38 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Highlight(props) {
-  const { image, name, description, price, orders, inStock, type, shirtSize, bootSize, _id } = props;
+  const {
+    image,
+    name,
+    description,
+    price,
+    orders,
+    inStock,
+    type,
+    shirtSize,
+    shirtColor,
+    bootSize,
+    ballYear,
+    _id,
+  } = props;
 
   return (
-    <Link key={_id} to={`/product/${name}`} state={{image, name, price, type, orders, shirtSize, bootSize}}>
+    <Link
+      key={_id}
+      to={`/product/${name}`}
+      state={{
+        image,
+        name,
+        price,
+        type,
+        orders,
+        inStock,
+        shirtSize,
+        shirtColor,
+        bootSize,
+        ballYear
+      }}
+    >
       <Container>
         <HighlightImage alt={description} src={image} />
         <HighlightName>{name}</HighlightName>
