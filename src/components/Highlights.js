@@ -7,7 +7,7 @@ export default function Highlights() {
   const [products, setProducts] = useState([]);
   console.log(products);
   useEffect(() => {
-    const URL = "http://localhost:5000/store";
+    const URL = "https://masquenada-api.onrender.com/store";
 
     axios
       .get(URL)
