@@ -15,9 +15,11 @@ export default function Highlights() {
         const productsList = res.data;
         let newProductList = [];
         productsList.map((product) => {
+          while (newProductList.length < 2) {
           if (product.orders > 280) {
             newProductList = [...newProductList, product];
-          }
+            console.log('teste');
+          }}
         });
         setProducts(newProductList);
       })

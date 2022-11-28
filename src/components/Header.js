@@ -20,18 +20,20 @@ export default function Header() {
         </Link>
 
         <Menu>
-          <div className="categories">
-            <span>CATEGORIAS</span>
+          <Link to="/store">
+            <div className="categories">
+              <span>CATEGORIAS</span>
 
-            <div className="menu-categories">
-              <p>Todos</p>
-              <p>Roupas</p>
-              <p>Chuteiras</p>
-              <p>Acessórios</p>
-              <p>Masculino</p>
-              <p>Feminino</p>
+              <div className="menu-categories">
+                <p>Todos</p>
+                <p>Roupas</p>
+                <p>Chuteiras</p>
+                <p>Acessórios</p>
+                <p>Masculino</p>
+                <p>Feminino</p>
+              </div>
             </div>
-          </div>
+          </Link>
           <Link to="/about-us">
             <span>SOBRE</span>
           </Link>
@@ -41,28 +43,37 @@ export default function Header() {
         </Menu>
 
         <Icons>
-          {token !== null ?
-            (<p className="username">Olá, {name}!</p>)
-            :
-            (<Link to="/sign-in">
-            <ion-icon name="person-circle-outline"></ion-icon>
-            </Link>)}
+          {token !== null ? (
+            <p className="username">Olá, {name}!</p>
+          ) : (
+            <Link to="/sign-in">
+              <ion-icon name="person-circle-outline"></ion-icon>
+            </Link>
+          )}
 
           <div className="cart" onClick={() => setShowCart(!showCart)}>
             <ion-icon name="cart-sharp"></ion-icon>
           </div>
 
-          {token !== null ?
-            (<ion-icon name="log-out-sharp" onClick={() => {
-              localStorage.clear();
-              alert("Você foi desconectado.");
-              navigate("/");
-            }}></ion-icon>)
-            :
-            ("")}
+          {token !== null ? (
+            <ion-icon
+              name="log-out-sharp"
+              onClick={() => {
+                localStorage.clear();
+                alert("Você foi desconectado.");
+                navigate("/");
+              }}
+            ></ion-icon>
+          ) : (
+            ""
+          )}
         </Icons>
       </HeaderContainer>
-      <Cart showCart={showCart} setShowCart={setShowCart} onClick={() => setShowCart(false)} />
+      <Cart
+        showCart={showCart}
+        setShowCart={setShowCart}
+        onClick={() => setShowCart(false)}
+      />
     </>
   );
 }

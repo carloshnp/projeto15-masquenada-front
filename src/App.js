@@ -11,6 +11,7 @@ import Home from "./pages/products/Home";
 import ProductPage from "./pages/products/ProductPage";
 import Overlay from "./components/Overlay";
 import UserContext from "./context/UserContext";
+import Store from "./pages/products/Store";
 
 export default function App() {
   const [showCart, setShowCart] = useState(false);
@@ -24,6 +25,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:productName" element={<ProductPage />} />
+          <Route path="/store" element={<Store />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/checkout" element={<Checkout />} />
